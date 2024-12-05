@@ -1424,7 +1424,7 @@ public class VCSolver {
 			if (n > 100 && n * SHRINK >= rn && !outputLP && decompose()) return true;
 			if (REDUCTION >= 0 && REDUCTION < 2 && dominateReduction()) continue;
 			if (REDUCTION >= 2 && unconfinedReduction()) continue;
-			if (REDUCTION >= 1 && lpReduction()) continue;
+			if (REDUCTION >= 4 && lpReduction()) continue;
 			if (REDUCTION >= 3) {
 				int r = packingReduction();
 				if (r < 0) return true;

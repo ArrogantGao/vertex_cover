@@ -11,11 +11,11 @@ import tc.wata.util.SetOpt.*;
 
 public class Main {
 	
-	@Option(abbr = 'r', usage = "0: deg1+dominance+fold2, 1:LP, 2:unconfined+twin+funnel+desk, 3:packing")
+	@Option(abbr = 'r', usage = "0: deg1+dominance+fold2, 2:unconfined+twin+funnel+desk, 3:packing, 4:LP")
 	public static int reduction = 3;
 	
 	@Option(abbr = 'l', usage = "0: nothing, 1:clique, 2:LP, 3:cycle, 4:all")
-	public static int lb = 4;
+	public static int lb = 0;
 	
 	@Option(abbr = 'b', usage = "0:random, 1:mindeg, 2:maxdeg")
 	public static int branching = 2;
@@ -66,7 +66,6 @@ public class Main {
 	
 	void run(String file) {
 		// System.err.println("reading the input graph...");
-		System.err.println("reduction = " + reduction + ", lb = " + lb + ", branching = " + branching);
 		read(file);
 		if (debug > 0) Stat.setShutdownHook();
 		int m = 0;
@@ -86,7 +85,7 @@ public class Main {
 			vc.solve();
 			end = System.currentTimeMillis();
 		}
-		// System.err.printf("opt = %d, time = %.3f%n", vc.opt, 1e-3 * (end - start));
+		System.err.printf("opt = %d, time = %.3f%n", vc.opt, 1e-3 * (end - start));
 		read(file);
 		int sum = 0;
 		for (int i = 0; i < adj.length; i++) {
