@@ -103,6 +103,9 @@ public class Main {
 				System.out.println(vertexID[i]);
 			}
 		}
+
+		System.out.println("nBranchings = " + VCSolver.nBranchings);
+
 	}
 	
 	void debug(Object...os) {
