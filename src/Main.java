@@ -65,13 +65,14 @@ public class Main {
 	}
 	
 	void run(String file) {
-		System.err.println("reading the input graph...");
+		// System.err.println("reading the input graph...");
+		System.err.println("reduction = " + reduction + ", lb = " + lb + ", branching = " + branching);
 		read(file);
 		if (debug > 0) Stat.setShutdownHook();
 		int m = 0;
 		for (int i = 0; i < adj.length; i++) m += adj[i].length;
 		m /= 2;
-		System.err.printf("n = %d, m = %d%n", adj.length, m);
+		// System.err.printf("n = %d, m = %d%n", adj.length, m);
 		VCSolver vc = new VCSolver(adj, adj.length);
 		VCSolver.nBranchings = 0;
 		VCSolver.REDUCTION = reduction;
@@ -85,7 +86,7 @@ public class Main {
 			vc.solve();
 			end = System.currentTimeMillis();
 		}
-		System.err.printf("opt = %d, time = %.3f%n", vc.opt, 1e-3 * (end - start));
+		// System.err.printf("opt = %d, time = %.3f%n", vc.opt, 1e-3 * (end - start));
 		read(file);
 		int sum = 0;
 		for (int i = 0; i < adj.length; i++) {
