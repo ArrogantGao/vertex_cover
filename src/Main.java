@@ -85,7 +85,7 @@ public class Main {
 			vc.solve();
 			end = System.currentTimeMillis();
 		}
-		System.err.printf("opt = %d, time = %.3f%n", vc.opt, 1e-3 * (end - start));
+		// System.err.printf("opt = %d, time = %.3f%n", vc.opt, 1e-3 * (end - start));
 		read(file);
 		int sum = 0;
 		for (int i = 0; i < adj.length; i++) {
